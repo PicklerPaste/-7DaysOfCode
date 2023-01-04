@@ -1,0 +1,105 @@
+<meta charset="UTF-8">
+
+<script>
+
+function alertaBoasVindas() {
+	alert("Bem vindo à calculadora iniciante! Vou resolver problemas matemáticos para você.");
+}
+
+function executaAdição() {
+	var resultado = valor1 + valor2;
+	return resultado;
+}
+
+function executaSubtração() {
+	var resultado = valor1 - valor2;
+	return resultado;
+}
+
+function executaMultiplicação() {
+	var resultado = valor1 * valor2;
+	return resultado;
+}
+
+function executaDivisão() {
+	var resultado = valor1 / valor2;
+	return resultado;
+}
+
+function perguntaOperação() {
+	var operação = prompt("Qual operação você gostaria de executar desta vez? Escolha entre 'adição', 'subtração', 'multiplicação' e 'divisão'.");
+	while(operação !== "adição" &&
+			operação !== "subtração" &&
+			operação !== "multiplicação" &&
+			operação !== "divisão") {
+		var operação = prompt("Qual operação você gostaria de executar desta vez? Escolha entre 'adição', 'subtração', 'multiplicação' e 'divisão'.");
+		}
+	return operação;
+}
+
+function continuaPerguntaOperação() {
+	operação = perguntaOperação();
+	valor1 = perguntaValor1();
+	valor2 = perguntaValor2();
+	mostraResultado();
+	continua = perguntaContinua();
+}
+
+function perguntaValor1() {
+	var valor1 = parseInt(prompt("Qual o primeiro valor?"));
+	return valor1;
+}
+
+function perguntaValor2() {
+	var valor2 = parseInt(prompt("Qual o segundo valor?"));
+	return valor2;
+}
+
+function mostraResultado() {
+	switch(operação) {
+	case "adição": 
+		var soma = executaAdição();
+		alert("O resultado da adição é " + soma + ".");
+		break;
+	case "subtração":
+		var diminui = executaSubtração();
+		alert("O resultado da subtração é " + diminui + ".");
+		break;
+	case "multiplicação":
+		var multiplica = executaMultiplicação();
+		alert("O resultado da multiplicação é " + multiplica + ".");
+		break;
+	case "divisão":
+		var divide = executaDivisão();
+		alert("O resultado da divisão é " + divide + ".");
+		break;	
+	}
+}
+
+function perguntaContinua() {
+	var continua = prompt("Você gostaria de fazer outro cálculo? Responda 'sim' ou 'não'.");
+	while(continua !== "sim" &&
+		continua !== "não") {
+		var continua = prompt("Você gostaria de fazer outro cálculo? Responda 'sim' ou 'não'.");
+	}
+	return continua;
+}
+
+function encerrarOperações() {
+	if(continua === "não") {
+		alert("Obrigado por utilizar nossos serviços!");
+	}
+}
+
+alertaBoasVindas();
+var operação = perguntaOperação();
+var valor1 = perguntaValor1();
+var valor2 = perguntaValor2();
+mostraResultado();
+var continua = perguntaContinua();
+while(continua === "sim") {
+	continuaPerguntaOperação();
+}
+encerrarOperações();
+
+</script>

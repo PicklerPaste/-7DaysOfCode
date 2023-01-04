@@ -1,0 +1,33 @@
+<meta charset = "UTF-8">
+
+<script>
+
+function mostra() {
+	alert("Olá " + nome + ", você tem " + idade + " anos e já está aprendendo " + linguagemDeProgramação + "!")
+}
+
+var nome = prompt("Digite seu nome: ");
+var idade = prompt("Digite sua idade: ");
+var linguagemDeProgramação = prompt("Digite a linguagem de programação que você está estudando: ");
+
+mostra();
+
+var gostaDaLinguagem = prompt("Você gosta de estudar " + linguagemDeProgramação + "? Responda com o número 1 para SIM ou 2 para NÃO.");
+
+if (gostaDaLinguagem == 1) {
+	alert("Muito bom! Continue estudando e você terá muito sucesso.")
+} else if (gostaDaLinguagem == 2) {
+		alert("Ahh que pena... Já tentou aprender outras linguagens?")
+} else {
+	while(gostaDaLinguagem != 1 &&
+		gostaDaLinguagem != 2) {
+			gostaDaLinguagem = prompt("Você gosta de estudar " + linguagemDeProgramação + "? Responda com o número 1 para SIM ou 2 para NÃO.");
+		if (gostaDaLinguagem == 1) {
+			alert("Muito bom! Continue estudando e você terá muito sucesso.")
+		} else if (gostaDaLinguagem == 2) {
+			alert("Ahh que pena... Já tentou aprender outras linguagens?")
+		}
+	}
+}
+
+</script>

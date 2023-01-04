@@ -1,0 +1,112 @@
+<meta charset = "UTF-8">
+
+<script>
+
+function mostra(frase) {
+	document.write(frase);
+	document.write("<br>");
+}
+
+var itensSuperMercado = [];
+var contador = 0;
+var localFrutas = [];
+var localLaticínios = [];
+var localCongelados = [];
+var localDoces = [];
+
+while(contador == itensSuperMercado.length) {
+	var novoItem = prompt("Você deseja adicionar algum item à lista de compras? Responda 'sim' ou 'não'.");
+
+	while(novoItem !== "sim" &&
+			novoItem !== "não") {
+			alert("Por favor, responda com 'sim' ou 'não'.");
+			var novoItem = prompt("Você deseja adicionar algum item à lista de compras? Responda 'sim' ou 'não'.");
+		}
+
+	if(novoItem == "sim") {
+		var adicionaItem = prompt("Qual item você deseja inserir?");
+		var deseja = true;
+		for(var position = 0; position <=itensSuperMercado.length; position ++) {
+			if(itensSuperMercado[position] == adicionaItem) {
+				alert("Item repetido!")
+				deseja = false;
+				break;
+			}
+		}
+		if(deseja) {
+			itensSuperMercado.push(adicionaItem);
+			var categoria = prompt("Em qual categoria esse item se encaixa? Digite '1' para Frutas, '2' para Laticínios, '3' para Congelados e '4' para Doces.")
+			while(categoria != 1 &&
+				categoria != 2 &&
+				categoria != 3 &&
+				categoria != 4) {
+				alert("Não entendi.");
+				var categoria = prompt("Em qual categoria esse item se encaixa? Digite '1' para Frutas, '2' para Laticínios, '3' para Congelados e '4' para Doces.")
+			}
+			if(categoria == 1) {
+				localFrutas.push(adicionaItem);
+			}
+			if(categoria == 2) {
+				localLaticínios.push(adicionaItem);
+			}
+			if(categoria == 3) {
+				localCongelados.push(adicionaItem);
+			}
+			if(categoria == 4) {
+				localDoces.push(adicionaItem);
+			}
+			contador ++
+
+		}
+	} else if(novoItem == "não") {
+		mostra("Os itens de supermercado são: " + itensSuperMercado + ".");
+		mostra("Segundo suas categorias:");
+		mostra("Frutas: " + localFrutas + ".");
+		mostra("Laticínios: " + localLaticínios + ".");
+		mostra("Congelados: " + localCongelados + ".");
+		mostra("Doces: " + localDoces + ".");
+		break;
+	}
+}
+
+//ou, resposta ao Desafio 7 DaysCode
+
+/* 
+deixar frutas = [];
+let laticínios = [];
+deixe doces = [];
+deixe congelados = [];
+deixe comida = "";
+deixe categoria = "";
+
+deixe adicionarMais = "sim"; // valor inicial como "sim", porque a primeira vez sempre vai entrar no while
+while(adicionarMais != "não"){
+    adicionarMais = prompt("Você deseja adicionar uma comida na lista de compras? Responda 'sim' ou 'não'.");
+    while (adicionarMais != "sim" && adicionarMais != "não") { //enquanto o texto lido para diferente de "sim" e de "não", exibe que não foi reconhecido e pergunta novamente
+	alert(`Operação não reconhecida!`);
+        adicionarMais = prompt("Você deseja adicionar uma comida na lista de compras? Responda 'sim' ou 'não'.");
+    }
+	
+    if (adicionarMais === "não"){ //se o texto lido for "não", sair do while
+        pausa;
+    }
+	
+    comida = prompt("Qual comida você deseja inserir?");
+    categoria = prompt("Em qual categoria essa comida se encaixa: 'frutas', 'laticínios', 'doces' ou 'congelados'?");
+    if(categoria === 'frutas'){
+        frutas.push(comida);
+    } else if (categoria === 'laticínios'){
+        laticínios.push(comida);
+    } else if (categoria === 'doces'){
+        doces.push(comida);
+    } else if (categoria === 'congelados'){
+        congelados.push(comida);
+    } outro {
+        alert("Essa categoria não foi pré-definida.")
+    }
+}
+alert(`Lista de compras:\n Frutas: ${frutas}\n Laticínios: ${laticínios}\n Doces: ${doces}\n Congelados: ${congelados}`);
+
+*/
+
+</script>

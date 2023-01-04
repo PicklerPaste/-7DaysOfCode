@@ -1,0 +1,161 @@
+<meta charset = "UTF-8">
+
+<script>
+
+function mostra(frase) {
+	document.write(frase);
+	document.write("<br>");
+}
+
+var itensSuperMercado = [];
+var contador = 0;
+var localFrutas = [];
+var localLaticínios = [];
+var localCongelados = [];
+var localDoces = [];
+
+while(contador == itensSuperMercado.length) {
+	var novoItem = prompt("Você deseja adicionar algum item à lista de compras? Responda 'sim' ou 'não'.");
+
+	while(novoItem !== "sim" &&
+		novoItem !== "não") {
+		alert("Por favor, responda com 'sim' ou 'não'.");
+		var novoItem = prompt("Você deseja adicionar algum item à lista de compras? Responda 'sim' ou 'não'.");
+	}
+
+	if(contador >= 1) {
+		var removeItem = prompt("Você deseja remover algum item da lista de compras? Responda com 'sim' caso queira removê-lo ou responda 'não' caso não queira remover nenhum item.");
+
+		while(removeItem !== "sim" &&
+				removeItem !== "não") {
+				alert("Por favor, responda com 'sim' ou 'não'.");
+				var removeItem = prompt("Você deseja remover algum item da lista de compras? Responda com 'sim' caso queira removê-lo ou responda 'não' caso não queira remover nenhum item.");
+			}
+
+		if(removeItem == "sim") {
+			var excluiItemCategoria = prompt("Qual a categoria do item que deve ser excluído? Digite '1' para Frutas, '2' para Laticínios, '3' para Congelados e '4' para Doces.");
+			while(excluiItemCategoria != 1 &&
+					excluiItemCategoria != 2 &&
+					excluiItemCategoria != 3 &&
+					excluiItemCategoria != 4) {
+					alert("Não entendi.");
+					var excluiItemCategoria = prompt("Qual a categoria do item que deve ser excluído? Digite '1' para Frutas, '2' para Laticínios, '3' para Congelados e '4' para Doces.");
+				}
+				if(excluiItemCategoria == 1) {
+					var excluiItem = prompt("Qual o nome do Item a ser excluído?");
+					var pos = localFrutas.indexOf(excluiItem);
+					if(pos == -1) {
+						alert("Não há esse item na lista.");
+						var excluiItem = prompt("Qual o nome do Item a ser excluído?");
+						var pos = localFrutas.indexOf(excluiItem);
+						if(pos == 1) {
+							alert("Ok, o item " + excluiItem + " será excluído.")
+							localFrutas.splice(pos, 1);
+						}
+					} else {
+						alert("Ok, o item " + excluiItem + " será excluído.")
+						localFrutas.splice(pos, 1);
+					}
+				}
+				if(excluiItemCategoria == 2) {
+					var excluiItem = prompt("Qual o nome do Item a ser excluído?");
+					var pos = localLaticínios.indexOf(excluiItem);
+					if(pos == -1) {
+						alert("Não há esse item na lista.");
+						var excluiItem = prompt("Qual o nome do Item a ser excluído?");
+						var pos = localLaticínios.indexOf(excluiItem);
+						if(pos == 1) {
+							alert("Ok, o item " + excluiItem + " será excluído.")
+							localLaticínios.splice(pos, 1);
+						}
+					} else {
+						alert("Ok, o item " + excluiItem + " será excluído.")
+						localLaticínios.splice(pos, 1);
+					}
+				}
+				if(excluiItemCategoria == 3) {
+					var excluiItem = prompt("Qual o nome do Item a ser excluído?");
+					var pos = localCongelados.indexOf(excluiItem);
+					if(pos == -1) {
+						alert("Não há esse item na lista.");
+						var excluiItem = prompt("Qual o nome do Item a ser excluído?");
+						var pos = localCongelados.indexOf(excluiItem);
+						if(pos == 1) {
+							alert("Ok, o item " + excluiItem + " será excluído.")
+							localCongelados.splice(pos, 1);
+						}
+					} else {
+						alert("Ok, o item " + excluiItem + " será excluído.")
+						localCongelados.splice(pos, 1);
+					}
+				}
+				if(excluiItemCategoria == 4) {
+					var excluiItem = prompt("Qual o nome do Item a ser excluído?");
+					var pos = localDoces.indexOf(excluiItem);
+					if(pos == -1) {
+						alert("Não há esse item na lista.");
+						var excluiItem = prompt("Qual o nome do Item a ser excluído?");
+						var pos = localDoces.indexOf(excluiItem);
+						if(pos == 1) {
+							alert("Ok, o item " + excluiItem + " será excluído.")
+							localDoces.splice(pos, 1);
+						}
+					} else {
+						alert("Ok, o item " + excluiItem + " será excluído.")
+						localDoces.splice(pos, 1);
+					}
+				}
+		}
+
+		if(removeItem == "não") {
+			alert("Ok, nenhum item será removido.");
+		}
+	}
+
+	if(novoItem == "sim") {
+		var adicionaItem = prompt("Qual item você deseja inserir?");
+		var deseja = true;
+		for(var position = 0; position <=itensSuperMercado.length; position ++) {
+			if(itensSuperMercado[position] == adicionaItem) {
+				alert("Item repetido!")
+				deseja = false;
+				break;
+			}
+		}
+		if(deseja) {
+			itensSuperMercado.push(adicionaItem);
+			var categoria = prompt("Em qual categoria esse item se encaixa? Digite '1' para Frutas, '2' para Laticínios, '3' para Congelados e '4' para Doces.")
+			while(categoria != 1 &&
+				categoria != 2 &&
+				categoria != 3 &&
+				categoria != 4) {
+				alert("Não entendi.");
+				var categoria = prompt("Em qual categoria esse item se encaixa? Digite '1' para Frutas, '2' para Laticínios, '3' para Congelados e '4' para Doces.")
+			}
+			if(categoria == 1) {
+				localFrutas.push(adicionaItem);
+			}
+			if(categoria == 2) {
+				localLaticínios.push(adicionaItem);
+			}
+			if(categoria == 3) {
+				localCongelados.push(adicionaItem);
+			}
+			if(categoria == 4) {
+				localDoces.push(adicionaItem);
+			}
+			contador ++
+
+		}
+	} else if(novoItem == "não") {
+		mostra("Pronto, já anotei todos os itens!");
+		mostra("Segundo suas categorias:");
+		mostra("Frutas: " + localFrutas + ".");
+		mostra("Laticínios: " + localLaticínios + ".");
+		mostra("Congelados: " + localCongelados + ".");
+		mostra("Doces: " + localDoces + ".");
+		break;
+	}
+}
+
+</script>

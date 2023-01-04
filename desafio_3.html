@@ -1,0 +1,101 @@
+<meta charset = "UTF-8">
+
+<script>
+
+function mostra(frase) {
+	document.write(frase);
+	pulaLinha();
+}
+
+function pulaLinha() {
+	document.write("<br>");
+	document.write("<br>");
+}
+
+function caminhar() {
+	var caminho = prompt(nome + ", qual área você gostaria de seguir? Responda 1 para FRONT-END ou 2 para BACK-END.");
+	while(caminho != 1 &&
+		caminho != 2) {
+		alert("Não entendi.");
+		var caminho = prompt(nome + ", qual área você gostaria de seguir? Responda 1 para FRONT-END ou 2 para BACK-END.");
+	}
+	return caminho
+}
+
+function caminharUmOuDois () {
+	if(frontBack == 1) {
+		var front = prompt(nome + ", o que você gostaria de aprender em FRONT-END? Responda 3 para REACT ou 4 para VUE.");
+		while(front != 3 &&
+			front != 4) {
+			alert("Não entendi.");
+			var front = prompt(nome + ", o que você gostaria de aprender em FRONT-END? Responda 3 para REACT ou 4 para VUE.");
+		}
+		if(front == 3) {
+			alert("O React é uma biblioteca front-end JavaScript de código aberto com foco em criar interfaces de usuário em páginas web.");
+			return front;
+		} else if(front == 4) {
+			alert("Vue é um framework progressivo para a construção de interfaces de usuário. Ao contrário de outros frameworks monolíticos, Vue foi projetado desde sua concepção para ser adotável incrementalmente.");
+			return front;
+		}
+	} else if(frontBack == 2) {
+		var back = prompt(nome + ", o que você gostaria de aprender em BACK-END? Responda 5 para C# ou 6 para Java.");
+		while(back != 5 &&
+			back != 6) {
+			alert("Não entendi.");
+			var back = prompt(nome + ", o que você gostaria de aprender em BACK-END? Responda 5 para C# ou 6 para Java.");
+		}
+		if(back == 5) {
+			alert("C# é uma linguagem de programação, multiparadigma, de tipagem forte, desenvolvida pela Microsoft como parte da plataforma .NET.");
+			return back;
+		} else if(back == 6) {
+			alert("Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de programadores chefiada por James Gosling, na empresa Sun Microsystems, que em 2008 foi adquirido pela empresa Oracle Corporation.");
+			return back;
+		}
+	}
+}
+
+function vaiEspecializarOuAmpliar() {
+	var especializa = prompt("Você gostaria de continuar se especializando na área escolhida ou seguir se desenvolvendo para se tornar Fullstack? Responda 1 para se ESPECIALIZAR ou 2 para FULLSTACK.");
+	while(especializa != 1 &&
+		especializa != 2) {
+		alert("Não entendi.");
+		var especializa = prompt("Você gostaria de continuar se especializando na área escolhida ou seguir se desenvolvendo para se tornar Fullstack? Responda 1 para se ESPECIALIZAR ou 2 para FULLSTACK.");
+	}
+	if(especializa == 1) {
+		alert("A seguir, você poderá listar as tecnologias para se especializar na área escolhida.");
+	} else if(especializa == 2) {
+		alert("A seguir, você poderá listar as tecnologias para se tornar um programador Fullstack. Lembre-se: O desenvolvedor Full Stack é um profissional multitarefa, que consegue transitar entre projetos de desenvolvimento Front-End e Back-End.");
+	}
+	return especializa;
+}
+
+var nome = prompt("Olá, qual o seu nome?");
+var frontBack = caminhar();
+var seFrontBack = caminharUmOuDois();
+var especializaOuFull = vaiEspecializarOuAmpliar();
+
+var tecnologias = [];
+var quantidade = parseInt(prompt(nome + ", agora que você adquiriu um breve conhecimento a respeito do mundo da programação, vamos listar as tecnologias sobre as quais você gostaria de aprender. Quantas tecnologias você gostaria de aprender?"));
+var contador = 1;
+
+while(contador <= quantidade) {
+	var tecnologia = prompt("Informe o nome da tecnologia " + contador + ".");
+	var diferente = true;
+
+	for(var posicao = 0; posicao < tecnologias.length; posicao ++) {
+		if(tecnologias[posicao] == tecnologia) {
+			alert("Tecnologia repetida!");
+			diferente = false;
+			break;
+		}
+	}
+	if(diferente == true) {
+		tecnologias.push(tecnologia);
+		contador ++;
+	}
+}
+
+mostra("Sua lista de aprendizado de tecnologias é: " + tecnologias);
+mostra("Te desejo boa sorte!");
+
+</script>
